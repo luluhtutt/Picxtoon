@@ -3,3 +3,4 @@ __pycache__/
 *$py.class
 *toon-venv
 data/
+.DS_Store

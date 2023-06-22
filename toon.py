@@ -1,16 +1,23 @@
 import numpy as np
-import Image
-
+from PIL import Image
+import cv2
 
 # Read and convert a colored image into a floating point array with values between 0 and 1.
+
+
 def imread(filename):
     image = Image.open(filename)
     image_rgb = image.convert('RGB')
     image_data = np.asarray(image_rgb)
     return image_data / 255.
 
-    # gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
 
-# TypeError: Image data of dtype object cannot be converted to float
+# def gray_scale(img):
+#     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     # 0.2125*img[:, :, 0] + 0.7154*img[:, :, 1] + 0.0721*img[:, :, 2]
+#     return img_gray
 
-# gaussian --> otzu --> noise (dilating and erosing) --> ... --> watershed
+
+# def gaussianizing(image):
+
+    # gaussian --> otzu --> noise (dilating and erosing) --> ... --> watershed
