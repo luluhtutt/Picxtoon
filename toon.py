@@ -13,8 +13,9 @@ def imread(filename):
 
 
 # def gray_scale(img):
-#     img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-#     # 0.2125*img[:, :, 0] + 0.7154*img[:, :, 1] + 0.0721*img[:, :, 2]
+#     # img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+#     # img_gray = 0.2125*img[:, :, 0] + 0.7154*img[:, :, 1] + 0.0721*img[:, :, 2]
+#     # img_gray = img.convert('L')
 #     return img_gray
 
 
