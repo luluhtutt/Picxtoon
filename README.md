@@ -1,12 +1,14 @@
-## Picxtoon
+# Picxtoon
 
 Picxtoon is a software program that transforms your pictures into fun cartoons!
 
-## Team Members
->* Joanna Lin
->* Lulu Htutt
+## Authors
+> [Joanna Lin](https://github.com/Joanna-Lin-JL)  
+> [Lulu Htutt](https://github.com/luluhtutt)
 
 ## Installation and Building Instructions
 ### Required Libraries
-matplotlib (this will install numpy and Pillow)
-opencv-python
+* numpy
+* Pillow
+* opencv-python
+* matplotlib
