@@ -8,8 +8,12 @@ import cv2
 def imread(filename):
     image = Image.open(filename)
     image_rgb = image.convert('RGB')
-    image_data = np.asarray(image_rgb)
+    image_data = np.asarray(image_rgb, dtype='uint8')
     return image_data / 255.
+
+
+def imread_gray(filename):
+    return cv2.imread(filename, cv2.IMREAD_GRAYSCALE)
 
 
 def gray_scale(img):
@@ -21,6 +25,14 @@ def gray_scale(img):
 
 def gaussianizing(img):
     return cv2.GaussianBlur(img, (9, 9), 0)
-# ret3,th3 = cv.threshold(blur,0,255,cv.THRESH_BINARY+cv.THRESH_OTSU)
-# def gaussianizing(image):÷÷÷÷÷÷÷•••••–––––®†¨†Ô®˚´Ò∑ˆŒ˚ÅÂ√˜ı˚†Ø£«®‘‘“†“‘©«†´Ò£≤®≥¡¡¡¡¡¡™£´®†¥¨ˆøπ∂ƒ©˙∆˚¬ç√∫˜µ≤π“‘«–≠¬…≥÷–≠≠≠≠≠≠≠≠≠≠≠¡¡¡¡™™™™å∫√ç∆∂ˆ®¬ß∆∑ø®ˆ®¨©˚≤∂ß¬´ø£ª∞•¶§†ˆ∑…åß≥∑¬®ˆ∞≥≥……ººººººººººººººººººº`¡™ ç√∫∂ƒ√∂åß∂ƒ©˙∆˚¨©®∂ç≈çç∂ßç∂ßçç∫ıÎÎ√ÏÎÏŒ∑´®†Á¨ˆØ∏ÔÓ©©ÏÎÎÍÍ≈ıııııÎÏ√Ï√©ı©ı©Ï®√ÍÔÂ˚˚ˆˆÔÔÔÔ÷¿¿¿¿¿¿˘¯¯ÆÆÆÆææ
-    # gaussian --> otsu --> noise (dilating and erosing) --> ... --> watershed
+
+
+def edge_mask(gaussian):
+    return cv2.adaptiveThreshold(gaussian, 255, cv2.ADAPTIVE_THRESH_MEAN_C, cv2.THRESH_BINARY, blockSize=9, C=2)
+
+
+def otsu(gaussian):
+    return cv2.threshold(
+        gaussian, 0., 255., cv2.THRESH_BINARY+cv2.THRESH_OTSU)
+
+# gaussian --> otsu --> noise (dilating and erosing) --> ... --> watershed
